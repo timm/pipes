@@ -8,9 +8,9 @@ This following instructions have been tested under bash in Linux or Mac.
 
 Before reading this material, review [these slides](https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)
 
-<p align=center><img src="/etc/img/setting.png" width=500> </p>
-
 ## 1. Setting up
+
+<p align=center><img src="/etc/img/setting.png" width=400> </p>
 
 ### Step 1a: (optional)
 
