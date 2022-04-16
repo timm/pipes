@@ -74,6 +74,8 @@ e.g.
 
 ## Step 2: Add self-documentation 
 
+<p align=center><img src="/etc/img/doc.png" width=400> </p>
+
 ## Step 2a: Self-document the `Makefile`
 
 Add this rule to top of the `Makefile`:
