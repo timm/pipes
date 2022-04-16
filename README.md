@@ -24,17 +24,19 @@ Add a copyright notice; see [LICENSE](LICENSE).
 
 [pipes](pipes):
 
-    # pointer to this dir
-    HERE=$(git rev-parse --show-toplevel)
-    
-    # command line tricks
-    alias ls="ls -G"
-    alias vi="vim -u $HERE/etc/dotvimrc "
-    
-    py()  { python3 $1.py $* ; }
-    ccd() { cd $1; basename `pwd`; }
-    
-    PROMPT_COMMAND='echo -ne "| ";PS1="$(ccd ..)/$(ccd .):\!\e[m ▶ "'
+```sh
+# pointer to this dir
+HERE=$(git rev-parse --show-toplevel)
+
+# command line tricks
+alias ls="ls -G"
+alias vi="vim -u $HERE/etc/dotvimrc "
+
+py()  { python3 $1.py $* ; }
+ccd() { cd $1; basename `pwd`; }
+
+PROMPT_COMMAND='echo -ne "| ";PS1="$(ccd ..)/$(ccd .):\!\e[m ▶ "'
+```
 
 Load these into the current shell
 
