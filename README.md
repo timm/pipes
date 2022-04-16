@@ -84,7 +84,7 @@ help: ## show help
 
 Now your make file can report its own commands:
 
-    > make
+    $ make
 
     make bye                  save to github
     make copyright            show copyright
@@ -93,7 +93,7 @@ Now your make file can report its own commands:
     
 ## Step 2b: Self-document your scripts
 
-Write the help text for an app at the top of each file. e.g.
+Write the help text for an app at the top of each file. e.g. in [ok.py](ok.py):
 
     """
     cat csvFile | python3 ok.py [OPTIONS]
@@ -116,7 +116,6 @@ Include the comments command line flags. Here:
 - All this will end up as a setting whose key is from the long flag; e.g. the
   keys from the above would create the dictionary:
   - `{'strict': False, 'warn': 20, 'help':False}`
-
 
 ```python
 def cli(s):
@@ -143,4 +142,17 @@ settings = cli(__doc__)
 Place that `cli` code  in some (e.g.) `lib.py` file that all your small scripts
 can read. 
 
-## Step3
+Now all your scripts can print their help text:
+
+    $ py ok -h
+
+    cat csvFile | python3 ok.py [OPTIONS]
+    Check csv rows are right size. Optionally, check if cells are of right type.
+    Print rows that pass all tasks. After more than `-q` problems, exit
+    
+    OPTIONS:
+      --strict -s     use row1 to define checks for other rows = False
+      --warn  -w int  number of warnings before quitting       = 20
+      --help -h       show help                                = False
+
+## Step3: Divide 
