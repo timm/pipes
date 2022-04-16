@@ -112,7 +112,7 @@ Include the comments command line flags. Here:
 - All this will end up as a setting whose key is from the long flag; e.g. the
   keys from the above would create the dictionary:
   - `{'strict': False, 'warn': 20, 'help':False}`
-- 
+
 
 ```python
 def cli(s):
@@ -121,7 +121,7 @@ def cli(s):
      for at,flag in enumerate(sys.argv):            
        if flag==want1 or flag==want2: x=sys.argv[at+1])
      d[key] = atom(x)                             
-  if d.get("help",True): print(s)
+  if d.get("help",True): print(s) # print the help text (if the help key set)
   return d
 
 def atom(x):
