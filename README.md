@@ -72,11 +72,13 @@ e.g.
 
 Add this rule to top of the `Makefile`:
 
-    help: ## show help
-    	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
-    	| sort \
-    	| gawk 'BEGIN {FS = ":.*?## "}; \
-                   {printf "make \033[36m%-20s\033[0m %s\n", $$1, $$2}'
+```make
+help: ## show help
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
+	| sort \
+	| gawk 'BEGIN {FS = ":.*?## "}; \
+               {printf "make \033[36m%-20s\033[0m %s\n", $$1, $$2}'
+```
 
 Now your make file can report its own commands:
 
