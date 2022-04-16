@@ -1,0 +1,13 @@
+# vim: filetype=sh ts=2 sw=2 sts=2 et :
+export BASH_SILENCE_DEPRECATION_WARNING=1
+# pointer to this dir
+HERE=$(git rev-parse --show-toplevel)
+
+# command line tricks
+alias ls="ls -G"
+alias vi="vim -u $HERE/etc/dotvimrc "
+
+py()  { python3 $1.py $* ; }
+ccd() { cd $1; basename `pwd`; }
+
+PROMPT_COMMAND='echo -ne "| ";PS1="$(ccd ..)/$(ccd .):\!\e[m ▶ "'
