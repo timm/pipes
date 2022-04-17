@@ -29,7 +29,7 @@ def col(at,s):
 def score(cols,row): 
   return sum((c.want - row[c.at])**2 for c in cols)**.5
 
-def meta(egs,row):
+def meta(row):
   out = o(x=[], y=[])
   for at,name in enumerate(row):
     (out.y if ako.goalp(name) else out.x).append( col(at,name) )
