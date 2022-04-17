@@ -1,6 +1,7 @@
 
-| <img width=250 src="/etc/img/setup.jpg"> | [intro](/docs/pipes101.md) | [demos](https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)    | [apps](/docs/apps.md)   | oneLiners: [some](https://librarycarpentry.org/lc-shell/05-counting-mining), [lots more](https://github.com/onceupon/Bash-Oneliner) | [mining](https://teaching.idallen.com/cst8207/13w/notes/805_data_mining.html)   | textmine [one](https://williamjturkel.net/2013/06/15/basic-text-analysis-with-command-line-tools-in-linux/), [two](https://towardsdatascience.com/text-mining-on-the-command-line-8ee88648476f)   |
-| -------------------------                | ---                        | ------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------                                          | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ <img width=250 src="/etc/img/setup.jpg"><br>
+| [intro](/docs/pipes101.md)                                                   | [demos](https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)    | [apps](/docs/apps.md)                                                                                                               | oneLiners: [some](https://librarycarpentry.org/lc-shell/05-counting-mining), [lots more](https://github.com/onceupon/Bash-Oneliner) | [mining](https://teaching.idallen.com/cst8207/13w/notes/805_data_mining.html)                                                                                                                   | textmine [one](https://williamjturkel.net/2013/06/15/basic-text-analysis-with-command-line-tools-in-linux/), [two](https://towardsdatascience.com/text-mining-on-the-command-line-8ee88648476f)   |
+| ---                                                                          | ------------------------------------------------------------------------------- | -----------------------                                                                                                             | ------------------------------------------------------------------------------------------                                          | -------------------------------------------------------------------------------                                                                                                                 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 
 # Intro to Pipes
@@ -95,7 +96,7 @@ maybe even on different machines (\*)
 Dumb and smart way to implement pipes
 - Dumb: use disc files  for the spooling in the piles (lots of file I/O)
 - Smarter: 
-  - use specialized RAM disks to handle the pipe internal memory (much faster)
+  - [use](use) specialized RAM disks to handle the pipe internal memory (much faster)
   - have some buffer inside the pipe
     - start writing to downstream before upstream finishes
     - when the small buffer is small
