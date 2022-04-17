@@ -1,11 +1,11 @@
-[Intro](/docs/pipes101.md) 
-| [Demos](/https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html) 
-| [1liners](/docs/oneliners.md)
-| [More 1liners](https://github.com/onceupon/Bash-Oneliner) 
-| [Mining1](https://teaching.idallen.com/cst8207/13w/notes/805_data_mining.html)
-| [Textmine1](https://williamjturkel.net/2013/06/15/basic-text-analysis-with-command-line-tools-in-linux/)
-| [TextMine2](https://towardsdatascience.com/text-mining-on-the-command-line-8ee88648476f) 
-|  [Apps](/docs/apps.md)
+[intro](/docs/pipes101.md) 
+| [demos](/https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html) 
+| [oneLiners](/docs/oneliners.md)
+| [more oneLiners](https://github.com/onceupon/Bash-Oneliner) 
+| [mining1](https://teaching.idallen.com/cst8207/13w/notes/805_data_mining.html)
+| [textmine1](https://williamjturkel.net/2013/06/15/basic-text-analysis-with-command-line-tools-in-linux/)
+| [textMine2](https://towardsdatascience.com/text-mining-on-the-command-line-8ee88648476f) 
+|  [apps](/docs/apps.md)
 
 
 # Intro to Pipes
