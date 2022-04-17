@@ -6,19 +6,22 @@ This following instructions have been tested under bash in Linux or Mac.
 Before reading this material, review [these slides](https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)
 
 
+
+
 ## 1. Setting up
 
 ### Step 1a: (optional)
+
+    
+Tell Github what files never to save; see [.gitignore](.gitignore).
+
+Add a copyright notice; see [LICENSE](LICENSE).
 
 List the tools you are using and place them in [requirements.txt](requirements.txt)
 
     # python >= 3.9
     # gawk >= 5.1
     # figlet >= 2.2
-    
-Tell Github what files never to save; see [.gitignore](.gitignore).
-
-Add a copyright notice; see [LICENSE](LICENSE).
 
 ## Step 1b: create some shortcuts (e.g. in `pipes`)
 

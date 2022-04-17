@@ -18,10 +18,15 @@ OPTIONS:
   --copy -C       show copyright = False
 """
 
-import re,sys
+import re,sys,math
+#                                  _          _      _   
+#   __   ___   _ __   _  _   _ _  (_)  __ _  | |_   | |_ 
+#  / _| / _ \ | '_ \ | || | | '_| | | / _` | | ' \  |  _|
+#  \__| \___/ | .__/  \_, | |_|   |_| \__, | |_||_|  \__|
+#             |_|     |__/            |___/              
 
 def copyright(): print("""
-This file is part of learnBOT (BOT=box of tricks): a tiny data mining workbench.
+This file is part of pipes,  a tiny data mining workbench.
 Copyright (c) 2022, Tim Menzies, timm@ieee.org
 
 Redistribution and use in source and binary forms, with or without
@@ -46,6 +51,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """)
 
+#   __   ___   ___   _ _   __   ___ 
+#  / _| / _ \ / -_) | '_| / _| / -_)
+#  \__| \___/ \___| |_|   \__| \___|
 
 def atom(x):
   "Coerce single words into a Python atom."
@@ -61,12 +69,21 @@ def atoms(lst):
   "Coerce list of strings"
   return [atom(x) for x in lst]
 
+#        _                       _        
+#   ___ | |_   _ _   _  _   __  | |_   ___
+#  (_-< |  _| | '_| | || | / _| |  _| (_-<
+#  /__/  \__| |_|    \_,_| \__|  \__| /__/
+
 class o:
   "Building and printing of structs (hiding slots starting with '_')."
   def __init__(i, **d)  : i.__dict__.update(d)
   def __repr__(i) : return "{"+ ', '.join( 
     [f":{k} {v}" for k, v in i.__dict__.items() if  k[0] != "_"])+"}"
 
+#                      __   _   _            
+#   __   ___ __ __    / _| (_) | |  ___   ___
+#  / _| (_-< \ V /   |  _| | | | | / -_) (_-<
+#  \__| /__/  \_/    |_|   |_| |_| \___| /__/
 
 def csv(file=None, sep=",", dull=r'([\n\t\r ]|#.*)'):
   """Iterate over lines, divided on comma. Ignore blank lines & whitespace.  
@@ -74,8 +91,8 @@ def csv(file=None, sep=",", dull=r'([\n\t\r ]|#.*)'):
   if file:
     with open(file) as fp:
       for s in fp: 
-       s=re.sub(dull,"",s)
-       if s: yield s.split(sep)
+        s=re.sub(dull,"",s)
+        if s: yield s.split(sep)
   else:
      for s in sys.stdin: 
        s=re.sub(dull,"",s)
@@ -100,6 +117,24 @@ def cli(s):
   if d.get("copy", False): sys.exit(copyright())           #... [6]
   return o(**d)
 
+#                  _     _         
+#   _ __    __ _  | |_  | |_    ___
+#  | '  \  / _` | |  _| | ' \  (_-<
+#  |_|_|_| \__,_|  \__| |_||_| /__/
+
+def per(lst,p): return lst[ int(p*len(lst)) ] 
+def sd(lst):    return (per(lst,.9) - per(lst,.1))/2.56
+def ent(d):
+  e,n = 0,0
+  for _,m in d.items(): n += m 
+  for _,m in d.items(): e -= m/n*math.log(m/n,2)
+  return e
+
+#   _                _        
+#  | |_   ___   ___ | |_   ___
+#  |  _| / -_) (_-< |  _| (_-<
+#   \__| \___| /__/  \__| /__/
+                                          
 if __name__ == "__main__":
   the=cli(__doc__)
   if the.demo:

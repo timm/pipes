@@ -1,4 +1,3 @@
-
 # vim: ts=2 sw=2 sts=2 et :
 ###             __                                            
 ###            /\ \                                           
@@ -24,10 +23,10 @@ OPTIONS:
 import re,ako,sys,warnings
 import lib
 
-the = tricks.cli(__doc__)
+the = lib.cli(__doc__)
 
-def warn(the, msg):
-  print(msg)
+def warn(the, msg=""):
+  print("\n"+msg+"\n")
   the.warn -= 1
   if the.warn < 0: 
     print("E> too many warnings")
@@ -43,7 +42,7 @@ def main(the):
             return warn(the, f"#E> row {n}: wrong type {cell}")
     return True
   expects=None
-  for n,row in enumerate(tricks.csv()): 
+  for n,row in enumerate(lib.csv()): 
     if not expects : expects = [ako.nump(s) for s in row]
     else           : good(row); print(', '.join(row))
 
