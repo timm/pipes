@@ -1,17 +1,9 @@
-  | <img width=200 src="/etc/img/setup.jpg"> | [intro](/docs/pipes101.md) | [demos](https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)    | [apps](/docs/apps.md)   | oneLiners: [some](https://librarycarpentry.org/lc-shell/05-counting-mining), [lots more](https://github.com/onceupon/Bash-Oneliner) | [mining](https://teaching.idallen.com/cst8207/13w/notes/805_data_mining.html)   | textmine [one](https://williamjturkel.net/2013/06/15/basic-text-analysis-with-command-line-tools-in-linux/), [two](https://towardsdatascience.com/text-mining-on-the-command-line-8ee88648476f)   |
-  | -------------------------                | ---                        | ------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------                                          | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  
-
-
-
-
-
+| <img width=200 src="/etc/img/setup.jpg"> | [intro](/docs/pipes101.md)    | [demos](https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)    | [tools](/docs/tools.md) | oneLiners: [some](https://librarycarpentry.org/lc-shell/05-counting-mining), [lots more](https://github.com/onceupon/Bash-Oneliner) | [mining](https://teaching.idallen.com/cst8207/13w/notes/805_data_mining.html)   | textmine [one](https://williamjturkel.net/2013/06/15/basic-text-analysis-with-command-line-tools-in-linux/), [two](https://towardsdatascience.com/text-mining-on-the-command-line-8ee88648476f)   |
+| -------------------------                | ---------------------------- | ------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------                                          | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 # Intro to Pipes
 
-
 ## History
-
 
 Doug McIlroy, Bell Labs’ “Computing Techniques
 Research Department” 1986
@@ -22,9 +14,7 @@ to massage data in another way.”
  every program to become the input to another, as yet unknown,
  program. Don’t clutter output with extraneous information.”
 
-
 Pipes changed the whole idea of UNIX:
-
 
 - Implemented in 1973 when ("in one feverish night",
 wrote McIlroy) by  Ken Thompson.
@@ -35,9 +25,7 @@ would ever go back and give that up if they could.”
 day", McIlroy writes, "saw an unforgettable orgy of one-liners
 as everybody joined in the excitement of plumbing." 
 
-
 Pipes changed how we think about software
-
 
 - Not applications
 - But tools.
@@ -46,18 +34,14 @@ had made them so that they actually worked together.
   - People went back and consciously put into programs the idea that they read from a list of files 
   -  And  if there were no files they read from the standard input so that they could be used in pipelines.
 
-
 You've probably all used pipes already. Here we download an install shell script  then pipe it to the `sh` command
 (so it runs)
-
 
 ```
 curl -s http://example.com/install.sh | sh
 ```
 
-
 (By the way, that is a security risk. [Use with care!](https://blog.dijit.sh//don-t-pipe-curl-to-bash))
-
 
 Examples
 - `nroff` is a text formatter (old version of latex)
@@ -66,17 +50,13 @@ Examples
 - `tbl` is an nroff pre-processor that expresses tables in terms of lower-level nroff commands
 - `eqn` is an nroff pre-processor that expresses equations in terms of lower-level nroff commands
 
-
 ```bash
 nroff files | col | lp
-
 
 tbl file-1 file-2 . . . | eqn | nroff -ms
 ````
 
-
 Think of pipes as `produce`, `translate`, `filter`, `consume`:
-
 
 ```bash
 find /usr/bin/ |                #produce 
@@ -85,16 +65,12 @@ grep -i '^z'   |                #filter   : select items starting with z
 xargs -d '\n' aFinalConsumer    #consume 
 ```
 
-
 Note that in the above, the `filters` inside the `pipes` could be written in any language at all, by different teams.
-
 
 Also, operating systems _love_ pipes since they can run each part of the process as a separate process,
 maybe even on different machines (\*)
 
-
 (\*) That said, there is the data bus / network cost of streaming data between parts of the pipe. 
-
 
 Dumb and smart way to implement pipes
 - Dumb: use disc files  for the spooling in the piles (lots of file I/O)
@@ -103,7 +79,6 @@ Dumb and smart way to implement pipes
   - have some buffer inside the pipe
     - start writing to downstream before upstream finishes
     - when the small buffer is small
-
 
 Advantages:
 - Divides one task into N parallel tasks
@@ -118,12 +93,10 @@ Advantages:
   
 Disadvantages:
 
-
 - Carrying complex data between different parts of the pipe. 
 - Assumes a one-way flow, here to there
   - Not good for GUI environments where users want to call functions in any order
   - Which makes pipes are more an "under the hood" idea
 - Also, I've had problems with pipes and concurrency: sending data off on long retrieval arcs (e.g. from another part of the network)
   - But that's just me
-
 
