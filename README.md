@@ -166,17 +166,17 @@ Divide you app into lots of bits e.g.
 <tr>
 <td> Com   </td><td> Command </td><td> Flags </td></tr>
 <tr>
-<td> py ok   </td><td> -s  </td><td> 
+<td> py&nbsp;ok   </td><td> -s  </td><td> 
 Checks if a csv file has the right number of cells on each row.
 If `-s` is used, also check columns are of the right type</td>
 </tr>
 <tr>
-<td> py ok   </td><td> -s  </td><td> 
+<td> py&nbsp;ok   </td><td> -s  </td><td> 
 Checks if a csv file has the right number of cells on each row.
 If `-s` is used, also check columns are of the right type</td>
 </tr>
 <tr>
-<td> py ok   </td><td> -s  </td><td> 
+<td> py&nbsp;ok   </td><td> -s  </td><td> 
 Checks if a csv file has the right number of cells on each row.
 If `-s` is used, also check columns are of the right type</td>
 </tr>
