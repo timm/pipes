@@ -1,4 +1,4 @@
-<p align=center><img src="https://miro.medium.com/max/1400/0*F4OreR_V4_u8Jyx4.jpeg" width=600> </p>
+<p align=center><img src="/docs/img/setup.jpg") width=600> </p>
 
 # How to build a pipe-based app
 This following instructions have been tested under bash in Linux or Mac.
