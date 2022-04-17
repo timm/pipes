@@ -31,4 +31,4 @@ alias vims="vim +PluginInstall +qall"
 
 # command line tricks
 ccd() { cd $1; basename `pwd`; }
-PROMPT_COMMAND='echo -ne "🚰 ";PS1="$(ccd ..)/$(ccd .):\!\e[m ▶ "'
+PROMPT_COMMAND='echo -ne "🚰 ";PS1="$(ccd ..)/$(ccd .):\!\e[m > "'

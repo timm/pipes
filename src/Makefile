@@ -37,3 +37,8 @@ egstats1:
 egstats2:
 	@cat data/diabetes.csv  | python3 src/stats.py | column -s, -t
 
+AUKS=$(shell ls *.auk)
+auks: $(AUKS:.auk=.awk)
+
+%.awk : %.auk
+	gawk -f lib.awk --source 'BEGIN { auk2awk("'$<'")}' > $@
