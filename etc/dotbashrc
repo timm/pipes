@@ -1,5 +1,5 @@
 # vim: ft=bash ts=2 sw=2 sts=2 et :
-# for oython people, you only need these 3lines 
+# for oython people, you only need these lines 
 here="$(cd $( dirname "${BASH_SOURCE[0]}" ) && pwd )/.."
 export PYTHONPATH="$here/src:$PYTHONPATH"
 py()  { python3 $here/src/$1.py $* ; }
