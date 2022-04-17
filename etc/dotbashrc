@@ -1,30 +1,34 @@
-#!/usr/bin/env bash
 # vim: ft=bash ts=2 sw=2 sts=2 et :
- 
+# for oython people, you only need these 3lines 
+here="$(cd $( dirname "${BASH_SOURCE[0]}" ) && pwd )/.."
+export PYTHONPATH="$here/src:$PYTHONPATH"
+py()  { python3 $here/src/$1.py $* ; }
+
+#                                                         _    _ 
+#    _   ._   _|_  o   _   ._    _.  |     _  _|_       _|_  _|_ 
+#   (_)  |_)   |_  |  (_)  | |  (_|  |    _>   |_  |_|   |    |  
+#        |                                                       
+## some useful short cuts
 alias ..='cd ..'
 alias ...='cd ../../../'
 
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias gp="git add *;git commit -am save;git push;git status"
 alias grep='grep --color=auto'
 alias h="history"
 alias ls="ls -G"
+
+# mac os stuff
+export BASH_SILENCE_DEPRECATION_WARNING=1
+export PATH="$PWD:/opt/homebrew/bin:$PATH"
+
+# Github stuff
+alias gp="git add *;git commit -am save;git push;git status"
+
+# Optional stuff for my favorite editor. install these via `vims`
 alias vi="vim -u $here/etc/dotvimrc "
 alias vims="vim +PluginInstall +qall"         
 
-export BASH_SILENCE_DEPRECATION_WARNING=1
-export PATH="$PWD:/opt/homebrew/bin:$PATH"
-export PYTHONPATH="$here/src:$PYTHONPATH"
-
 # command line tricks
-alias ls="ls -G"
-alias vi="vim -u $here/etc/dotvimrc "
-
-py()  { python3 $here/src/$1.py $* ; }
 ccd() { cd $1; basename `pwd`; }
-
-here() { cd $1; basename `pwd`; }
-
 PROMPT_COMMAND='echo -ne "🚰 ";PS1="$(ccd ..)/$(ccd .):\!\e[m ▶ "'
-

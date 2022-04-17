@@ -18,10 +18,43 @@ List the tools you are using and place them in [requirements.txt](requirements.t
 
 ## Step 1b: create some shortcuts (e.g. in `etc/dotbashrc`)
 
-[dotbashrc](/etc/dotbashrc):
+[dotbashrc](/etc/dotbashrc): (only use the first 6 lines, then anything that looks fun after that)
 
 ```sh
-# home useful short cuts
+# vim: ft=bash ts=2 sw=2 sts=2 et :
+# for oython people, you only need these 3lines 
+here="$(cd $( dirname "${BASH_SOURCE[0]}" ) && pwd )/.."
+export PYTHONPATH="$here/src:$PYTHONPATH"
+py()  { python3 $here/src/$1.py $* ; }
+
+#                                                         _    _ 
+#    _   ._   _|_  o   _   ._    _.  |     _  _|_       _|_  _|_ 
+#   (_)  |_)   |_  |  (_)  | |  (_|  |    _>   |_  |_|   |    |  
+#        |                                                       
+# some useful short cuts
+alias ..='cd ..'
+alias ...='cd ../../../'
+
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias h="history"
+alias ls="ls -G"
+
+# mac os stuff
+export BASH_SILENCE_DEPRECATION_WARNING=1
+export PATH="$PWD:/opt/homebrew/bin:$PATH"
+
+# Github stuff
+alias gp="git add *;git commit -am save;git push;git status"
+
+# Optional stuff for my favorite editor. install these via `vims`
+alias vi="vim -u $here/etc/dotvimrc "
+alias vims="vim +PluginInstall +qall"         
+
+# command line tricks
+ccd() { cd $1; basename `pwd`; }
+PROMPT_COMMAND='echo -ne "🚰 ";PS1="$(ccd ..)/$(ccd .):\!\e[m ▶ "'# some useful short cuts
 alias ..='cd ..'
 alias ...='cd ../../../'
 alias egrep='egrep --color=auto'
@@ -56,7 +89,7 @@ Load these into the current shell
      export BASH_SILENCE_DEPRECATION_WARNING=1
       
      here="$(cd $( dirname "${BASH_SOURCE[0]}" ) && pwd )"
-     here="$here" bash --init-file "$here/etc/dotbashrc" -i
+     bash --init-file "$here/etc/dotbashrc" -i
 
 Then load all that
 
