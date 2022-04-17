@@ -1,4 +1,4 @@
-<p align=center><img src="/docs/img/setup.jpg") width=600> </p>
+<p align=center><img src="/etc/img/setup.jpg") width=600> </p>
 
 # How to build a pipe-based app
 This following instructions have been tested under bash in Linux or Mac.
@@ -72,9 +72,9 @@ e.g.
      bye:	## save to github
      	   git add *;git commit -am save;git push;git status
 
-## Step 2: Add self-documentation 
-
 <p align=center><img src="/etc/img/doc.png" width=400> </p>
+
+## Step 2: Add self-documentation 
 
 ## Step 2a: Self-document the `Makefile`
 
