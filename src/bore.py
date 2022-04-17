@@ -36,9 +36,9 @@ def meta(egs,row):
   return out
 
 def main(the):
-  egs = o(x=[], y=[])
+  cols = o(x=[], y=[])
   for n,row in enumerate(csv()):
-    if n==0: cols  = cols([cols(egs,(i,s) if ako.goal(s) else x(i) for i,s in enumerate(row)]
+    if n==0: meta  = cols(row)
     else   : rows += [o(val=score(goals,row), row=row)]
   rows = sorted(rows, key=lambda x: x.val)
   best = int(the.best*len(rows))
