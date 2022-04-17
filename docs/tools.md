@@ -1,5 +1,5 @@
-| <img width=200 src="/etc/img/setup.jpg"> | [intro](/docs/pipes101.md)    | [demos](https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)    | [tools](/docs/tools.md) | oneLiners: [some](https://librarycarpentry.org/lc-shell/05-counting-mining), [lots more](https://github.com/onceupon/Bash-Oneliner) | [mining](https://teaching.idallen.com/cst8207/13w/notes/805_data_mining.html)   | textmine [one](https://williamjturkel.net/2013/06/15/basic-text-analysis-with-command-line-tools-in-linux/), [two](https://towardsdatascience.com/text-mining-on-the-command-line-8ee88648476f)   |
-| -------------------------                | ---------------------------- | ------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------                                          | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img width=200 src="/etc/img/setup.jpg"> | [intro](/docs/pipes101.md)   | [demos](https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)    | [tools](/docs/tools.md) | oneLiners: [some](https://librarycarpentry.org/lc-shell/05-counting-mining), [lots more](https://github.com/onceupon/Bash-Oneliner) | [mining](https://teaching.idallen.com/cst8207/13w/notes/805_data_mining.html)   | textmine [one](https://williamjturkel.net/2013/06/15/basic-text-analysis-with-command-line-tools-in-linux/), [two](https://towardsdatascience.com/text-mining-on-the-command-line-8ee88648476f)   | &copy;2022 [Tim Menzies](timm@ieee.org) |
+| -------------------------                | ---------------------------- | ------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------                                          | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------          |
 
 # Writing Pipe-based Tools
 ## Setting up
@@ -22,7 +22,7 @@ List the tools you are using and place them in [requirements.txt](requirements.t
 
 ```sh
 # vim: ft=bash ts=2 sw=2 sts=2 et :
-# for oython people, you only need these 3lines 
+# for oython people, you only need these lines 
 here="$(cd $( dirname "${BASH_SOURCE[0]}" ) && pwd )/.."
 export PYTHONPATH="$here/src:$PYTHONPATH"
 py()  { python3 $here/src/$1.py $* ; }
@@ -31,7 +31,7 @@ py()  { python3 $here/src/$1.py $* ; }
 #    _   ._   _|_  o   _   ._    _.  |     _  _|_       _|_  _|_ 
 #   (_)  |_)   |_  |  (_)  | |  (_|  |    _>   |_  |_|   |    |  
 #        |                                                       
-# some useful short cuts
+[#](#) some useful short cuts
 alias ..='cd ..'
 alias ...='cd ../../../'
 
